@@ -21,4 +21,7 @@
     <!--homefragment里的数据-->
     <dimen name="fragment_top_height">50dp</dimen>
 
+    <!-- around 里面的数据-->
+
+
 </resources>
