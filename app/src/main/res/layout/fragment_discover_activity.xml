@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/discover_top_height"
+        android:orientation="horizontal"
+        android:padding="@dimen/discover_top_padding">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:text="我在青岛"
+            android:layout_marginRight="@dimen/discover_top_padding"
+            android:textSize="@dimen/text_size_two"
+            android:layout_marginLeft="@dimen/discover_top_padding"
+            android:drawableRight="@mipmap/all_trangle_selected_down_icon"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:background="@drawable/discover_top_search"
+            android:text="@string/discover_top_search"
+            android:layout_marginLeft="@dimen/discover_top_padding"
+            android:layout_marginRight="@dimen/discover_top_padding"
+            android:textColor="@color/gray_big"
+            android:drawableLeft="@mipmap/discover_top_search"
+            android:textSize="@dimen/text_size_three"
+            android:paddingLeft="20dp"/>
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/discover_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

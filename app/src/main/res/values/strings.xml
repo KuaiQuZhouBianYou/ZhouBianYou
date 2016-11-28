@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">WantToZhouBianYou</string>
+    <string name="app_name">MyZhouBianYou</string>
+
+    <!--mian activity 里的文本-->
+    <string name="main_bottom_home">首页</string>
+    <string name="main_bottom_around">目的地</string>
+    <string name="main_bottom_discover">发现</string>
+    <string name="main_bottom_my">我的</string>
+
+    <string name="discover_top_search">\t周末去哪玩?</string>
+
 </resources>
