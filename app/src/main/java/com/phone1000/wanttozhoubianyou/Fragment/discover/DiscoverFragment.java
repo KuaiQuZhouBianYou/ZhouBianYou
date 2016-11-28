@@ -83,7 +83,7 @@ public class DiscoverFragment extends BaseFragment {
         }*/
     }
     private void initView() {
-        mListView = ((ListView) layout.findViewById(R.id.discover_listview));
+        mListView = ((ListView) layout.findViewById(R.id.discover_lv));
         adapter = new DiscoverAdapter(getActivity(),null);
         mListView.setAdapter(adapter);
     }

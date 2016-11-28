@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.phone1000.wanttozhoubianyou.Fragment.BaseFragment;
 import com.phone1000.wanttozhoubianyou.R;
+import com.phone1000.wanttozhoubianyou.adapter.home.HomeAdapter;
+
+import org.xutils.x;
 
 /**
  * Created by Administrator on 2016/11/26.
@@ -19,6 +22,7 @@ public class HomeFragment extends BaseFragment  {
     public static final String TAG=HomeFragment.class.getSimpleName();
     private TextView location;
     private ListView mListView;
+    private HomeAdapter adapter;
     // private AMapLocationClient aMapLocationClient;
   //  private AMapLocationClientOption  mLocationOption;
    // public String cityname;
@@ -38,11 +42,18 @@ public class HomeFragment extends BaseFragment  {
 
        // location();
         initView();
+        setupView();
+    }
+
+    private void setupView() {
     }
 
     private void initView() {
        // location = ((TextView) layout.findViewById(R.id.fragment_home_top_location));
         mListView = (ListView) layout.findViewById(R.id.home_listview);
+        adapter = new HomeAdapter(getActivity(),null);
+        mListView.setAdapter(adapter);
+
 
 
     }
