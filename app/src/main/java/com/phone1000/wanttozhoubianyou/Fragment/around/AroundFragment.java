@@ -25,4 +25,9 @@ public class AroundFragment extends BaseFragment {
         layout = inflater.inflate(R.layout.fragment_around_activity,container,false);
         return layout;
     }
+
+
+
+
+
 }

@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     >
     
     <ListView
@@ -16,6 +15,7 @@
        android:id="@+id/fragment_home_top_layout"
        android:orientation="horizontal"
        android:layout_width="match_parent"
+       android:layout_marginRight="@dimen/fragment_top_height"
        android:layout_height="@dimen/fragment_top_height"
        android:background="#fff"
        >
@@ -24,8 +24,10 @@
            android:id="@+id/fragment_home_top_location"
            android:layout_width="0dp"
            android:layout_height="match_parent"
+           android:drawableRight="@mipmap/all_trangle_selected_down_icon"
            android:layout_weight="2"
-           android:gravity="center"
+           android:gravity="right|center_vertical"
+           android:textSize="@dimen/text_size_two"
            android:text="我在青岛"
            />
        <RelativeLayout
@@ -33,9 +35,19 @@
            android:layout_height="match_parent"
            android:layout_weight="4"
            >
-         <ImageView
+         <TextView
+             android:id="@+id/fragment_home_top_location_find"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:gravity="center_vertical"
+             android:background="@drawable/discover_top_search"
+             android:text="@string/discover_top_search"
+             android:layout_marginLeft="@dimen/discover_top_padding"
+             android:layout_marginRight="@dimen/discover_top_padding"
+             android:textColor="@color/gray_big"
+             android:drawableLeft="@mipmap/discover_top_search"
+             android:textSize="@dimen/text_size_three"
+             android:paddingLeft="20dp"
              />
 
        </RelativeLayout>

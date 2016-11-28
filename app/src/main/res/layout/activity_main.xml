@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     tools:context="com.phone1000.wanttozhoubianyou.MainActivity">
 
+    <ImageView
+        android:layout_width="@dimen/fragment_top_height"
+        android:layout_height="@dimen/fragment_top_height"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_launcher"
+        />
+
     <FrameLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
