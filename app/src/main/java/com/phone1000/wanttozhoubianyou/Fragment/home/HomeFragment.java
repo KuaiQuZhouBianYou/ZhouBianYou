@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.phone1000.wanttozhoubianyou.Fragment.BaseFragment;
@@ -17,7 +18,8 @@ public class HomeFragment extends BaseFragment  {
     public View layout;
     public static final String TAG=HomeFragment.class.getSimpleName();
     private TextView location;
-   // private AMapLocationClient aMapLocationClient;
+    private ListView mListView;
+    // private AMapLocationClient aMapLocationClient;
   //  private AMapLocationClientOption  mLocationOption;
    // public String cityname;
    // public String cityCode;
@@ -39,7 +41,9 @@ public class HomeFragment extends BaseFragment  {
     }
 
     private void initView() {
-        location = ((TextView) layout.findViewById(R.id.fragment_home_top_location));
+       // location = ((TextView) layout.findViewById(R.id.fragment_home_top_location));
+        mListView = (ListView) layout.findViewById(R.id.home_listview);
+
 
     }
     /*private void location() {

@@ -1,60 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout 
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    
-    <ListView
-        android:id="@+id/fragment_home_listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-    </ListView>
-   <LinearLayout
+
+   <RelativeLayout
        android:id="@+id/fragment_home_top_layout"
        android:orientation="horizontal"
        android:layout_width="match_parent"
-       android:layout_marginRight="@dimen/fragment_top_height"
-       android:layout_height="@dimen/fragment_top_height"
-       android:background="#fff"
+       android:layout_height="50dp"
+       android:padding="10dp"
        >
 
        <TextView
-           android:id="@+id/fragment_home_top_location"
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:drawableRight="@mipmap/all_trangle_selected_down_icon"
-           android:layout_weight="2"
-           android:gravity="right|center_vertical"
-           android:textSize="@dimen/text_size_two"
+           android:id="@+id/home_top_location"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
            android:text="我在青岛"
+           android:textSize="18sp"
+           android:textColor="#fff"
+           android:layout_centerVertical="true"
+           android:layout_marginLeft="5dp"
+           android:drawableRight="@mipmap/destination_city_down_icon"
            />
-       <RelativeLayout
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:layout_weight="4"
-           >
-         <TextView
-             android:id="@+id/fragment_home_top_location_find"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:gravity="center_vertical"
-             android:background="@drawable/discover_top_search"
-             android:text="@string/discover_top_search"
-             android:layout_marginLeft="@dimen/discover_top_padding"
-             android:layout_marginRight="@dimen/discover_top_padding"
-             android:textColor="@color/gray_big"
-             android:drawableLeft="@mipmap/discover_top_search"
-             android:textSize="@dimen/text_size_three"
-             android:paddingLeft="20dp"
-             />
-
-       </RelativeLayout>
+       <TextView
+           android:id="@+id/home_top_find"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="50dp"
+           android:layout_toRightOf="@+id/home_top_location"
+           android:background="@drawable/home_textview"
+           android:layout_centerVertical="true"
+           android:layout_alignParentTop="true" />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="周末去哪玩？"
+           android:layout_alignLeft="@id/home_top_find"
+           android:layout_marginLeft="40dp"
+           android:textColor="#C4BCB3"
+           android:layout_centerVertical="true"
+           android:textSize="13sp"/>
        <ImageView
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:layout_weight="1"/>
+           android:layout_width="20dp"
+           android:layout_height="20dp"
+           android:src="@mipmap/find_erweima"
+           android:layout_alignRight="@+id/home_top_find"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="20dp"/>
 
-   </LinearLayout>
-</FrameLayout >
+   </RelativeLayout>
+    <ListView
+        android:id="@+id/home_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+</RelativeLayout >
