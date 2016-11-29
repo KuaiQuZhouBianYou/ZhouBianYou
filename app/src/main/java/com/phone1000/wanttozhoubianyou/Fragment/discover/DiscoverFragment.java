@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -18,6 +19,7 @@ import com.phone1000.wanttozhoubianyou.discoveractivity.SecondDsicoverActivity;
 import com.phone1000.wanttozhoubianyou.discoveradapter.DiscoverAdapter;
 import com.phone1000.wanttozhoubianyou.discovercontest.DiscoverContest;
 import com.phone1000.wanttozhoubianyou.discovermodel.DiscoverModel;
+import com.rock.qrcodelibrary.CaptureActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,13 +34,15 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/11/26.
  */
-public class DiscoverFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+public class DiscoverFragment extends BaseFragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
+    private static final int QR_CODE =100 ;
     public View layout;
     public static final String TAG=DiscoverFragment.class.getSimpleName();
     private ListView mListView;
     private DiscoverAdapter adapter;
     private int id=475;
+    private ImageView mErWeiMa;
 
     @Nullable
     @Override
@@ -110,6 +114,8 @@ public class DiscoverFragment extends BaseFragment implements AdapterView.OnItem
         adapter = new DiscoverAdapter(getActivity(),null);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(this);
+        mErWeiMa = ((ImageView) layout.findViewById(R.id.discover_erweima));
+        mErWeiMa.setOnClickListener(this);
     }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -120,4 +126,20 @@ public class DiscoverFragment extends BaseFragment implements AdapterView.OnItem
         startActivity(intent);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.discover_erweima:
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivityForResult(intent,QR_CODE);
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //接收扫描的结果
+
+    }
 }
