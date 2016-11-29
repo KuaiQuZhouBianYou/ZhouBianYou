@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.phone1000.wanttozhoubianyou.Fragment.BaseFragment;
 import com.phone1000.wanttozhoubianyou.R;
 import com.phone1000.wanttozhoubianyou.discoveractivity.SecondDsicoverActivity;
@@ -48,8 +50,8 @@ public class DiscoverFragment extends BaseFragment implements AdapterView.OnItem
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
-        setData();
-        //getData();
+        //setData();
+        getData();
     }
 
     private void setData() {
@@ -62,17 +64,23 @@ public class DiscoverFragment extends BaseFragment implements AdapterView.OnItem
         adapter.updataRes(data);
     }
     private void getData() {
-
+        final List<DiscoverModel>datas=new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             RequestParams requestParams = new RequestParams(DiscoverContest.DISCOVER_URL1+id+DiscoverContest.DISCOVER_URL12);
             x.http().get(requestParams, new Callback.CommonCallback<String>() {
                 @Override
                 public void onSuccess(String result) {
-                    Log.e(TAG, Thread.currentThread().getName()+"onSuccess: 000000" );
+
+                    //Log.e(TAG, Thread.currentThread().getName()+"onSuccess: 000000" );
                     try {
+                        Gson gson = new Gson();
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject content = jsonObject.getJSONObject("content");
-
+                        Type type = new TypeToken<DiscoverModel>() {
+                        }.getType();
+                        DiscoverModel data=gson.fromJson(content.toString(),type);
+                        datas.add(data);
+                        adapter.updataRes(datas);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -94,6 +102,8 @@ public class DiscoverFragment extends BaseFragment implements AdapterView.OnItem
             });
             id++;
         }
+
+
     }
     private void initView() {
         mListView = ((ListView) layout.findViewById(R.id.discover_lv));
@@ -104,6 +114,10 @@ public class DiscoverFragment extends BaseFragment implements AdapterView.OnItem
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getActivity(), SecondDsicoverActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("themeId",adapter.getItem(position).getThemeId());
+        intent.putExtras(bundle);
         startActivity(intent);
     }
+
 }

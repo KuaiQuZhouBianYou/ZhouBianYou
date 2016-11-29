@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/second_header_iamge"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginLeft="5dp"/>
+    <TextView
+        android:id="@+id/second_header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="宝贝周末怎么玩"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/second_header_iamge"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"/>
+    <TextView
+        android:id="@+id/second_header_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="内容"
+        android:layout_below="@+id/second_header_title"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp" />
+
+</RelativeLayout>

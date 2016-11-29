@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.phone1000.wanttozhoubianyou.R;
 import com.phone1000.wanttozhoubianyou.discovermodel.DiscoverModel;
 
+import org.xutils.x;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +64,7 @@ public class DiscoverAdapter extends BaseAdapter {
         //加载数据
         holder.title.setText(getItem(position).getTitle());
         holder.subtitle.setError(getItem(position).getSubTitle());
+        x.image().bind(holder.image,getItem(position).getImageUrl());
         return convertView;
     }
     public static class ViewHolder{
