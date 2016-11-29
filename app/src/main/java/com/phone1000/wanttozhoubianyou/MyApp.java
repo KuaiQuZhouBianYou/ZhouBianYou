@@ -4,6 +4,8 @@ import android.app.Application;
 
 import org.xutils.x;
 
+import cn.sharesdk.framework.ShareSDK;
+
 /**
  * Created by 落叶 on 2016-11-28.
  */
@@ -15,5 +17,6 @@ public class MyApp extends Application {
         super.onCreate();
         x.Ext.init(this);
         x.isDebug();
+        ShareSDK.initSDK(this);
     }
 }

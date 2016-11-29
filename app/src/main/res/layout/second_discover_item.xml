@@ -50,7 +50,7 @@
         android:text="古老东方神话，民间艺术，光与影的交相辉映，别样精彩欢乐之旅。"
         android:layout_toRightOf="@+id/tv2"
         android:layout_below="@+id/second_discover_item_productName"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="3dp"/>
     <TextView
         android:id="@+id/tv3"
         android:layout_width="wrap_content"
@@ -79,6 +79,14 @@
         android:layout_alignBottom="@+id/second_discover_item_iamge"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"/>
+    <com.phone1000.wanttozhoubianyou.MyTextView
+        android:id="@+id/second_discover_item_oldprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv4"
+        android:layout_alignBottom="@+id/second_discover_item_iamge"
+        android:text="$160"
+        android:layout_marginLeft="5dp"/>
     <TextView
         android:id="@+id/second_discover_item_saledCount"
         android:layout_width="wrap_content"
