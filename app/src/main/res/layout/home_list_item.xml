@@ -77,45 +77,48 @@
                 android:text="蓝海大饭店 - 邻近唐岛湾公园，交通便利，可沿海骑行享中国岸线的魅力风光。"
                 android:textSize="16sp"/>
 
-            <TextView
-                android:id="@+id/home_item_statetext"
+            <LinearLayout
+                android:id="@+id/hone_item_linear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/home_item_productname"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/home_item_state"
-                android:textSize="13sp"
-                android:textColor="#fff"
-                android:gravity="center"
-                android:drawableLeft="@mipmap/shandiansmall"
-                android:text="今日可定"/>
-            <TextView
-                android:id="@+id/home_item_cityname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="青岛"
-                android:background="@drawable/home_item_citye"
-                android:layout_toRightOf="@id/home_item_statetext"
-                android:textSize="13sp"
-                android:layout_alignBottom="@+id/home_item_statetext"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="10dp"
-                android:textColor="#999090"
-                android:paddingRight="10dp"/>
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/home_item_statetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/home_item_state"
+                    android:textSize="13sp"
+                    android:textColor="#fff"
+                    android:gravity="center"
+                    android:drawableLeft="@mipmap/shandiansmall"
+                    android:text="今日可定"/>
+                <TextView
+                    android:id="@+id/home_item_cityname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="青岛"
+                    android:background="@drawable/home_item_citye"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#999090"
+                    android:paddingRight="10dp"/>
 
-            <TextView
-                android:id="@+id/home_item_labeltext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="门票"
-                android:background="@drawable/home_item_citye"
-                android:layout_toRightOf="@id/home_item_cityname"
-                android:textSize="13sp"
-                android:layout_alignBottom="@+id/home_item_cityname"
-                android:layout_marginLeft="10dp"
-                android:paddingLeft="10dp"
-                android:textColor="#999090"
-                android:paddingRight="10dp"/>
+                <TextView
+                    android:id="@+id/home_item_labeltext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="门票"
+                    android:background="@drawable/home_item_citye"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="#999090"
+                    android:paddingRight="10dp"/>
+            </LinearLayout>
+
+
 
             <TextView
                 android:id="@+id/home_item_saledcount"
@@ -125,7 +128,7 @@
                 android:textSize="14sp"
                 android:textColor="#999090"
                 android:layout_alignParentRight="true"
-                android:layout_alignBottom="@+id/home_item_cityname"
+                android:layout_alignBottom="@+id/hone_item_linear"
                 />
         </RelativeLayout>
 

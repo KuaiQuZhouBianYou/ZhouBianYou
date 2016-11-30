@@ -1,15 +1,20 @@
 package com.phone1000.wanttozhoubianyou.adapter.home;
 
 import android.content.Context;
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.phone1000.wanttozhoubianyou.R;
 import com.phone1000.wanttozhoubianyou.model.home.Home;
+
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +24,7 @@ import java.util.List;
  */
 public class HomeAdapter extends BaseAdapter {
 
+    private static final String TAG = HomeAdapter.class.getSimpleName();
     private List<Home> data;
     private LayoutInflater inflater;
 
@@ -28,6 +34,20 @@ public class HomeAdapter extends BaseAdapter {
             this.data = data;
         }else {
             this.data  =  new ArrayList<>();
+        }
+    }
+
+    public void  updateRes(List<Home> data){
+        if (data!=null){
+            this.data.clear();
+            this.data = data;
+            notifyDataSetChanged();
+        }
+    }
+    public void addRes(List<Home> data){
+        if (data!=null) {
+            this.data.addAll(data);
+            notifyDataSetChanged();
         }
     }
 
@@ -56,8 +76,39 @@ public class HomeAdapter extends BaseAdapter {
         }else {
             holder = (ViewHolder) convertView.getTag();
         }
+        if (position==0){
+            holder.layout.setVisibility(View.VISIBLE);
+        }else {
+            holder.layout.setVisibility(View.GONE);
+        }
         //加载数据
-        holder.price.setText(getItem(position).getPrice());
+        Log.e(TAG, "getView:--------------- " +getItem(position).getPrice() );
+        x.image().bind(holder.image,getItem(position).getBigImageUrl());
+        holder.price.setText("￥"+getItem(position).getPrice()+"起");
+        holder.oldprice.setText(getItem(position).getRetailPrice());
+      //  holder.productname.setText(getItem(position).getProductName() + getItem(position).getProductTitleContent());
+        holder.productname.setText(Html.fromHtml("<b><tt>"+getItem(position).getProductName()+" </tt></b>"+getItem(position).getProductTitleContent()));
+        holder.statetext.setText(getItem(position).getStateText());
+        if (getItem(position).getStateText() == null) {
+            holder.statetext.setVisibility(View.GONE);
+        }else {
+            holder.statetext.setVisibility(View.VISIBLE);
+            holder.statetext.setText(getItem(position).getStateText());
+        }
+
+        if (getItem(position).getCityName()==null){
+            holder.cityname.setVisibility(View.GONE);
+        }else {
+            holder.cityname.setVisibility(View.VISIBLE);
+            holder.cityname.setText(getItem(position).getCityName());
+        }
+        if (getItem(position).getLabelText()==null){
+            holder.labeltext.setVisibility(View.GONE);
+        }else {
+            holder.labeltext.setVisibility(View.VISIBLE);
+            holder.labeltext.setText(getItem(position).getLabelText());
+        }
+        holder.saledcount.setText("已售"+getItem(position).getSaledCount());
         return convertView;
     }
 
@@ -70,6 +121,7 @@ public class HomeAdapter extends BaseAdapter {
         TextView cityname;
         TextView labeltext;
         TextView saledcount;
+        LinearLayout layout;
         public ViewHolder(View itemView) {
             image = (ImageView) itemView.findViewById(R.id.home_item_image);
             price = (TextView) itemView.findViewById(R.id.home_item_price);
@@ -79,6 +131,7 @@ public class HomeAdapter extends BaseAdapter {
             cityname = (TextView) itemView.findViewById(R.id.home_item_cityname);
             labeltext = (TextView) itemView.findViewById(R.id.home_item_labeltext);
             saledcount = (TextView) itemView.findViewById(R.id.home_item_saledcount);
+            layout = (LinearLayout) itemView.findViewById(R.id.item_top_layout);
 
         }
     }

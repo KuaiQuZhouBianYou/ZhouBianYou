@@ -14,7 +14,16 @@ public class Home {
     private String saledCount;
     private String provinceName;
     private String cityName;
+    private String stateText;
     private String channelLinkId;
+
+    public String getStateText() {
+        return stateText;
+    }
+
+    public void setStateText(String stateText) {
+        this.stateText = stateText;
+    }
 
     public int getProductId() {
         return productId;

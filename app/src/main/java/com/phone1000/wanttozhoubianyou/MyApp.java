@@ -2,6 +2,8 @@ package com.phone1000.wanttozhoubianyou;
 
 import android.app.Application;
 
+import com.phone1000.administrator.mylibrary.ImageLoader;
+
 import org.xutils.x;
 
 /**
@@ -15,5 +17,6 @@ public class MyApp extends Application {
         super.onCreate();
         x.Ext.init(this);
         x.isDebug();
+        ImageLoader.init(this);
     }
 }
