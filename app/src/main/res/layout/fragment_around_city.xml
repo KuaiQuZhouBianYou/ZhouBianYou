@@ -1,12 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="城市"
-        />
 
-</LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/my_rim"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/destination_around_location_icon"
+
+      />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="全国热门景区"
+                />
+            <GridView
+                android:id="@+id/fragment_around_allhostscenic"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:horizontalSpacing="@dimen/gridview_Spacing"
+                android:verticalSpacing="@dimen/gridview_Spacing"
+                android:numColumns="2"
+                >
+            </GridView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="全国热门城市"
+                />
+            <GridView
+                android:id="@+id/fragment_around_allhostcity"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:horizontalSpacing="@dimen/gridview_Spacing"
+                android:verticalSpacing="@dimen/gridview_Spacing"
+                android:numColumns="4"
+                >
+
+            </GridView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

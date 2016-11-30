@@ -8,5 +8,5 @@ public class aroundUrl {
 
 
     public static final String AROUND_HOST="http://apiphp.yaochufa.com/portal/dest/scenicCity?system=android&channel=yaochufa&imei=ffffffff-8f6e-f1b6-197c-94460033c587&regId=170976fa8a8e9eae6b4&lang=app&version=5.5.1&deviceToken=ffffffff-8f6e-f1b6-197c-94460033c587&listType=all";
-
+    public static final String AROUND_CITY="http://apiphp.yaochufa.com/portal/dest/scenicCity?system=android&channel=yaochufa&imei=ffffffff-8f6e-f1b6-197c-94460033c587&regId=170976fa8a8e9eae6b4&lang=app&version=5.5.1&deviceToken=ffffffff-8f6e-f1b6-197c-94460033c587";
 }

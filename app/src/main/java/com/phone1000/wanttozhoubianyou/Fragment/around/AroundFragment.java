@@ -1,5 +1,6 @@
 package com.phone1000.wanttozhoubianyou.Fragment.around;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,10 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.phone1000.wanttozhoubianyou.Fragment.BaseFragment;
 import com.phone1000.wanttozhoubianyou.R;
+import com.phone1000.wanttozhoubianyou.activity.around.ChangeAreaActivity;
 import com.phone1000.wanttozhoubianyou.adapter.around.ViewPagerFragmentAdapter;
 import com.phone1000.wanttozhoubianyou.constant.around.aroundUrl;
 import com.phone1000.wanttozhoubianyou.model.around.aroundCityName;
@@ -30,7 +33,7 @@ import java.util.List;
  */
 
 
-public class AroundFragment extends BaseFragment {
+public class AroundFragment extends BaseFragment implements View.OnClickListener {
     public View layout;
     public static final String TAG=AroundFragment.class.getSimpleName();
     private TabLayout mTabLayout;
@@ -38,6 +41,7 @@ public class AroundFragment extends BaseFragment {
     private   List<aroundCityName.ContentBean> content;
     private List<String>titles;
     private ViewPagerFragmentAdapter adapter;
+    private ImageView arrow;
 
 
     @Nullable
@@ -62,26 +66,30 @@ public class AroundFragment extends BaseFragment {
         mViewPage.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPage);
 
+        arrow = ((ImageView) layout.findViewById(R.id.fragment_around_toobar_right_arrow));
+        arrow.setOnClickListener(this);
+
+
+
     }
 
     public List<Fragment> getFragmentData() {
+
         List<Fragment> data = new ArrayList<>();
         Log.e(TAG, "getFragmentData: "+content.size() );
 
         HostFragment hostFragment = new HostFragment();
         data.add(hostFragment);
 
-        for (int i = 1; i <content.size() ; i++) {
+        for (int i = 1; i <content.size(); i++) {
             CityFragment fragment = new CityFragment();
-
             Bundle bundle = new Bundle();
             bundle.putString("areaCode",content.get(i).getAreaCode()+"");
+            bundle.putString("listType",content.get(i).getListType());
             fragment.setArguments(bundle);
 
             data.add(fragment);
-
         }
-
         return data;
     }
 
@@ -101,6 +109,7 @@ public class AroundFragment extends BaseFragment {
 
                 adapter.updateRes(getFragmentData(),titles);
 
+
             }
 
             @Override
@@ -119,5 +128,22 @@ public class AroundFragment extends BaseFragment {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(getActivity(), ChangeAreaActivity.class);
+        intent.putExtra("position",mTabLayout.getSelectedTabPosition());
+        Log.e(TAG, "onClick: "+mTabLayout.getSelectedTabPosition());
+        startActivityForResult(intent,0);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        int pager = data.getIntExtra("pager", 0);
+        mTabLayout.setScrollPosition(pager,0,false);
+       // mViewPage.setVerticalScrollbarPosition(3);
     }
 }

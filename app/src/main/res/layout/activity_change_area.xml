@@ -40,35 +40,36 @@
     android:orientation="horizontal"
     android:layout_alignParentBottom="true"
     >
-    <android.support.design.widget.TabLayout
-        android:id="@+id/fragment_around_toobar"
+    <TextView
         android:layout_width="0dp"
         android:layout_weight="5"
-        app:tabTextColor="#fff"
-        app:tabSelectedTextColor="@color/yellow"
-        android:layout_height="match_parent">
-    </android.support.design.widget.TabLayout>
-
+        android:layout_height="match_parent"
+        android:text="切换地区"
+        android:textSize="20dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:textColor="#fff"
+        />
 
        <ImageView
-           android:id="@+id/fragment_around_toobar_right_arrow"
+           android:id="@+id/back_to_around"
            android:layout_width="0dp"
            android:layout_height="match_parent"
            android:layout_weight="1"
            android:padding="20dp"
-         android:src="@mipmap/all_trangle_down_icon"
+          android:src="@mipmap/all_trangle_icon"
            />
 </LinearLayout>
 
-
-
 </RelativeLayout>
-<android.support.v4.view.ViewPager
-    android:id="@+id/fragment_around_viewpager"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <GridView
+        android:id="@+id/changearea_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="4"
+        >
 
-</android.support.v4.view.ViewPager>
+    </GridView>
 
 
 </LinearLayout>

@@ -1,15 +1,19 @@
 package com.phone1000.wanttozhoubianyou.Fragment.around;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.google.gson.Gson;
 import com.phone1000.wanttozhoubianyou.Fragment.BaseFragment;
 import com.phone1000.wanttozhoubianyou.R;
+import com.phone1000.wanttozhoubianyou.activity.around.ScienicActivity;
 import com.phone1000.wanttozhoubianyou.adapter.around.GridViewAdapter;
 import com.phone1000.wanttozhoubianyou.adapter.around.GridViewtwoAdapter;
 import com.phone1000.wanttozhoubianyou.constant.around.aroundUrl;
@@ -24,7 +28,9 @@ import java.util.List;
 /**
  * Created by 落叶 on 2016-11-28.
  */
-public class HostFragment extends BaseFragment {
+public class HostFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+
+    private static final String TAG = HostFragment.class.getSimpleName();
 
     private View layout;
     private GridView scenic;
@@ -85,11 +91,32 @@ public class HostFragment extends BaseFragment {
 
     private void initView() {
         scenic = ((GridView) layout.findViewById(R.id.fragment_around_host_allhostscenic));
+        scenic.setOnItemClickListener(this);
         gridViewAdapter = new GridViewAdapter(getActivity(),null);
         scenic.setAdapter(gridViewAdapter);
         city = ((GridView) layout.findViewById(R.id.fragment_around_host_allhostcity));
         gridViewtwoAdapter = new GridViewtwoAdapter(getActivity(),null);
         city.setAdapter(gridViewtwoAdapter);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (parent.getId()) {
+          case R.id.fragment_around_host_allhostscenic:
+              aroundHost.ContentBean.HotScenicBean item = gridViewAdapter.getItem(position);
+              String scenicId = item.getScenicId();
+              Log.e(TAG, "onItemClick: "+scenicId );
+
+              Intent intent = new Intent(getActivity(), ScienicActivity.class);
+              intent.putExtra("id",scenicId);
+
+              startActivity(intent);
+
+
+              break;
+            case R.id.fragment_around_host_allhostcity:
+                break;
+        }
     }
 }
 
