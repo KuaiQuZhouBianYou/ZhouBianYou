@@ -198,6 +198,10 @@ public class ScienicActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.activity_scienic_pic:
+                Intent picIntent = new Intent(this, PictureActivity.class);
+                picIntent.putExtra("url",url);
+                startActivity(picIntent);
+
                 break;
 
 

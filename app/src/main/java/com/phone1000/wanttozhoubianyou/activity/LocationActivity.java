@@ -42,7 +42,6 @@ public  class LocationActivity extends AppCompatActivity {
 
         Log.e(TAG, "onCreate: "+latitude );
 
-
         //获取地图控件引用
         mMapView = (MapView) findViewById(R.id.mapview);
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，实现地图生命周期管理

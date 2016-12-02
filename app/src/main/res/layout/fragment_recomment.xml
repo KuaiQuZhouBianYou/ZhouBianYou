@@ -31,6 +31,7 @@
         android:id="@+id/fragment_recommend_introduction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:lines="3"
         android:layout_margin="5dp"
 
         />

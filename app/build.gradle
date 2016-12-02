@@ -3,7 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
-
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }}
     defaultConfig {
         applicationId "com.phone1000.wanttozhoubianyou"
         minSdkVersion 15
@@ -29,4 +32,5 @@ dependencies {
     compile project(':mylibrary')
     compile project(':qrlibrary')
     compile project(':pullToRefresh')
+    compile fileTree(dir: 'libs', include: '*.jar')
 }
