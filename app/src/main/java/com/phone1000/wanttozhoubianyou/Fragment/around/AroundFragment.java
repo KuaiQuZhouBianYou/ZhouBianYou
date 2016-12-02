@@ -33,7 +33,7 @@ import java.util.List;
  */
 
 
-public class AroundFragment extends BaseFragment implements View.OnClickListener {
+public class AroundFragment extends BaseFragment implements View.OnClickListener, TabLayout.OnTabSelectedListener {
     public View layout;
     public static final String TAG=AroundFragment.class.getSimpleName();
     private TabLayout mTabLayout;
@@ -65,6 +65,7 @@ public class AroundFragment extends BaseFragment implements View.OnClickListener
         adapter = new ViewPagerFragmentAdapter(getChildFragmentManager(), null,null);
         mViewPage.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPage);
+        mTabLayout.setOnTabSelectedListener(this);
 
         arrow = ((ImageView) layout.findViewById(R.id.fragment_around_toobar_right_arrow));
         arrow.setOnClickListener(this);
@@ -143,7 +144,24 @@ public class AroundFragment extends BaseFragment implements View.OnClickListener
         super.onActivityResult(requestCode, resultCode, data);
 
         int pager = data.getIntExtra("pager", 0);
-        mTabLayout.setScrollPosition(pager,0,false);
-       // mViewPage.setVerticalScrollbarPosition(3);
+        mTabLayout.setScrollPosition(pager,0,true);
+
+
+        mViewPage.setCurrentItem(pager);
+    }
+
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        mTabLayout.setupWithViewPager(mViewPage);
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
     }
 }

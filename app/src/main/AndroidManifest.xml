@@ -5,6 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+
+
+    <!--高德地图权限-->
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
     <!--分享所需要的权限-->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -44,8 +52,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name="com.amap.api.location.APSService"/>
         <activity android:name=".discoveractivity.SecondDsicoverActivity">
         </activity>
+        <activity android:name=".activity.around.ScienicActivity"/>
+        <activity android:name=".activity.around.ChangeAreaActivity"/>
+        <activity android:name=".activity.LocationActivity"/>
+        <activity android:name=".activity.WebActivity"/>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
@@ -66,6 +79,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <!--高德地图定位-->
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="e01178d3624b4d50b987b8ae8e44b71c">
+        </meta-data>
     </application>
 
 </manifest>

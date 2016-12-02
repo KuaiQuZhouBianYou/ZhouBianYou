@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.phone1000.wanttozhoubianyou"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -26,4 +26,7 @@ dependencies {
     compile 'org.xutils:xutils:3.3.38'
     compile 'com.android.support:design:23.4.0'
     compile 'com.google.code.gson:gson:2.2.4'
+    compile project(':mylibrary')
+    compile project(':qrlibrary')
+    compile project(':pullToRefresh')
 }

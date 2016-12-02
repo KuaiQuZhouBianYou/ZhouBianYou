@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 <RelativeLayout
     android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@mipmap/destination_head_bg"
+    >
+    <ImageView
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/destination_search_bar_bg"
+        />
+    <TextView
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="搜索目的地/景点/酒店等..."
+        android:textColor="#fff"
+        />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:padding="10dp"
+        android:src="@mipmap/destination_search_icon"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal"
+    >
+
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/fragment_around_toobar"
+        android:layout_width="0dp"
+        app:tabTextColor="#fff"
+        android:layout_weight="5"
+        app:tabSelectedTextColor="@color/yellow"
+        android:layout_height="match_parent">
+
+    </android.support.design.widget.TabLayout>
+    <ImageView
+        android:id="@+id/fragment_around_toobar_right_arrow"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="20dp"
+        android:src="@mipmap/all_trangle_down_icon"
+        />
+
+</LinearLayout>
+</RelativeLayout>
+<android.support.v4.view.ViewPager
+    android:id="@+id/fragment_around_viewpager"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</RelativeLayout>
-
+</android.support.v4.view.ViewPager>
 
 
 </LinearLayout>

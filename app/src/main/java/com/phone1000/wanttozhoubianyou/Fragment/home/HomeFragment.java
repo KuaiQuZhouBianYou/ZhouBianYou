@@ -169,7 +169,7 @@ public class HomeFragment extends BaseFragment implements PullToRefreshBase.OnRe
                     //调用刷新完成
                     if (pageIndex ==2){
                         //  mRefreshListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
-                        mRefreshListView.setFinish(true);
+                      //  mRefreshListView.setFinish(true);
                         mFood = LayoutInflater.from(getActivity()).inflate(R.layout.home_list_item_bottom,null);
                         mListView.addFooterView(mFood);
                     }

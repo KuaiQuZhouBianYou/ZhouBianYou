@@ -12,6 +12,7 @@ import java.util.List;
  * Created by Administrator on 2016-11-29.
  */
 public class HomeFragmentVpAdapter extends MyBasaAdapter<HomeHeadRecycle> {
+
     public HomeFragmentVpAdapter(Context context, List<HomeHeadRecycle> data, int layoutResId) {
         super(context, data, layoutResId);
     }
