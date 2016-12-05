@@ -33,7 +33,7 @@ import java.util.List;
  */
 
 
-public class AroundFragment extends BaseFragment implements View.OnClickListener, TabLayout.OnTabSelectedListener {
+public class AroundFragment extends BaseFragment implements View.OnClickListener {
     public View layout;
     public static final String TAG=AroundFragment.class.getSimpleName();
     private TabLayout mTabLayout;
@@ -65,7 +65,6 @@ public class AroundFragment extends BaseFragment implements View.OnClickListener
         adapter = new ViewPagerFragmentAdapter(getChildFragmentManager(), null,null);
         mViewPage.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPage);
-        mTabLayout.setOnTabSelectedListener(this);
 
         arrow = ((ImageView) layout.findViewById(R.id.fragment_around_toobar_right_arrow));
         arrow.setOnClickListener(this);
@@ -135,33 +134,16 @@ public class AroundFragment extends BaseFragment implements View.OnClickListener
     public void onClick(View v) {
         Intent intent = new Intent(getActivity(), ChangeAreaActivity.class);
         intent.putExtra("position",mTabLayout.getSelectedTabPosition());
-        Log.e(TAG, "onClick: "+mTabLayout.getSelectedTabPosition());
         startActivityForResult(intent,0);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         int pager = data.getIntExtra("pager", 0);
         mTabLayout.setScrollPosition(pager,0,true);
-
-
         mViewPage.setCurrentItem(pager);
     }
 
-    @Override
-    public void onTabSelected(TabLayout.Tab tab) {
-        mTabLayout.setupWithViewPager(mViewPage);
-    }
 
-    @Override
-    public void onTabUnselected(TabLayout.Tab tab) {
-
-    }
-
-    @Override
-    public void onTabReselected(TabLayout.Tab tab) {
-
-    }
 }

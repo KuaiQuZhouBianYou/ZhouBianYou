@@ -3,27 +3,28 @@ package com.phone1000.wanttozhoubianyou.adapter.around;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import uk.co.senab.photoview.PhotoView;
 
 /**
  * Created by 落叶 on 2016-12-02.
  */
 public class ViewPagerAdapter extends PagerAdapter {
 
-    List<ImageView>data;
+    List<PhotoView>data;
 
-    public ViewPagerAdapter(List<ImageView>data){
+    public ViewPagerAdapter(List<PhotoView>data){
         if (data!=null) {
             this.data = data;
         }else {
-            data = new ArrayList<>();
+           this.data = new ArrayList<>();
         }
 
     }
-    public void updataRes(List<ImageView>data){
+    public void updataRes(List<PhotoView>data){
         if (data!=null) {
             this.data.clear();
             this.data.addAll(data);

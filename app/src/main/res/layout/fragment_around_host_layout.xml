@@ -31,7 +31,7 @@
         <GridView
             android:id="@+id/fragment_around_host_allhostcity"
             android:layout_width="match_parent"
-            android:layout_height="640dp"
+            android:layout_height="720dp"
             android:horizontalSpacing="@dimen/gridview_Spacing"
             android:verticalSpacing="@dimen/gridview_Spacing"
             android:numColumns="2"

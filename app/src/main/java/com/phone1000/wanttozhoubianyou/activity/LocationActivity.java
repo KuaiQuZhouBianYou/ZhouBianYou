@@ -1,6 +1,7 @@
 package com.phone1000.wanttozhoubianyou.activity;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,14 +11,17 @@ import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.UiSettings;
-import com.amap.api.maps.model.CameraPosition;
+import com.amap.api.maps.model.BitmapDescriptor;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Marker;
+import com.amap.api.maps.model.MarkerOptions;
 import com.phone1000.wanttozhoubianyou.R;
 
 /**
  * Created by 落叶 on 2016-12-01.
  */
-public  class LocationActivity extends AppCompatActivity {
+public  class LocationActivity extends AppCompatActivity implements AMap.OnMarkerClickListener {
 
 
     private static final String TAG = LocationActivity.class.getSimpleName();
@@ -55,30 +59,39 @@ public  class LocationActivity extends AppCompatActivity {
 
         if (aMap == null) {
             aMap = mMapView.getMap();
+            setUpMap();
+            Log.e(TAG, "initView: "+"***map" );
+
         }
-        aMap.setMapType(AMap.MAP_TYPE_NORMAL);
-        uiSettings = aMap.getUiSettings();
-        uiSettings.setZoomControlsEnabled(true);
-        CameraUpdateFactory.newCameraPosition(new CameraPosition(
-                new LatLng(latitude,longitude),//新的中心点坐标
-                12, //新的缩放级别
-                0, //俯仰角0°~45°（垂直与地图时为0）
-                0  ////偏航角 0~360° (正北方为0)
-        ));
-       /* mMapView.setBuiltInZoomControls(true); // 设置启用内置的缩放控件
-        mMapController = mMapView.getController(); // 得到mMapView
-        // 的控制权,可以用它控制和驱动平移和缩放
-        point = new GeoPoint((int) (39.982378 * 1E6), (int) (116.304923 * 1E6));*/
+
 
     }
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
-        mMapView.onDestroy();
+    private void setUpMap() {
+
+        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude), 12));
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(new LatLng(latitude,longitude));
+        markerOptions.title("目的地");
+        markerOptions.visible(true);
+        BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.location));
+        markerOptions.icon(bitmapDescriptor);
+        aMap.addMarker(markerOptions);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -97,9 +110,16 @@ public  class LocationActivity extends AppCompatActivity {
         //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，实现地图生命周期管理
         mMapView.onSaveInstanceState(outState);
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
+        mMapView.onDestroy();
+    }
 
 
-
-
-
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
+    }
 }

@@ -98,31 +98,36 @@ public class ScienicActivity extends AppCompatActivity implements View.OnClickLi
                 longitude = scienic.getContent().getLongitude();
                 gotoMap.setVisibility(View.VISIBLE);
                 Weather(scienic.getContent().getCityName());
+                int total = scienic.getContent().getStrategyList().getTotal();
+                if (total!=0) {
+                    recommend.setVisibility(View.VISIBLE);
+                    List<Scienic.ContentBean.StrategyListBean.StrategyBean.PlayPointBean> playPoint = scienic.getContent().getStrategyList().getStrategy().get(0).getPlayPoint();
+                    List<Fragment> data = new ArrayList<Fragment>();
+                    for (int i = 0; i <playPoint.size() ; i++) {
+                        Scienic.ContentBean.StrategyListBean.StrategyBean.PlayPointBean playPointBean = playPoint.get(i);
 
-             //  weather.setText(MyApp.get);
-               // weather.setText();
-                List<Scienic.ContentBean.StrategyListBean.StrategyBean.PlayPointBean> playPoint = scienic.getContent().getStrategyList().getStrategy().get(0).getPlayPoint();
-                List<Fragment> data = new ArrayList<Fragment>();
-                for (int i = 0; i <playPoint.size() ; i++) {
-                    Scienic.ContentBean.StrategyListBean.StrategyBean.PlayPointBean playPointBean = playPoint.get(i);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("img",playPointBean.getImg());
+                        bundle.putString("indexNum",playPointBean.getIndexNum());
+                        bundle.putString("indexType",playPointBean.getIndexType());
+                        bundle.putString("intro",playPointBean.getIntro());
+                        bundle.putString("property",playPointBean.getProperty());
+                        bundle.putString("propertyName",playPointBean.getPropertyName());
+                        bundle.putString("title",playPointBean.getTitle());
+                        bundle.putString("url",playPointBean.getUrl());
+                        bundle.putString("id",playPointBean.getStrategyId());
+                        RecommendFragment recommendFragment = new RecommendFragment();
+                        recommendFragment.setArguments(bundle);
+                        data.add(recommendFragment);
 
-                    Bundle bundle = new Bundle();
-                    bundle.putString("img",playPointBean.getImg());
-                    bundle.putString("indexNum",playPointBean.getIndexNum());
-                    bundle.putString("indexType",playPointBean.getIndexType());
-                    bundle.putString("intro",playPointBean.getIntro());
-                    bundle.putString("property",playPointBean.getProperty());
-                    bundle.putString("propertyName",playPointBean.getPropertyName());
-                    bundle.putString("title",playPointBean.getTitle());
-                    bundle.putString("url",playPointBean.getUrl());
-                    RecommendFragment recommendFragment = new RecommendFragment();
-                    recommendFragment.setArguments(bundle);
-                    data.add(recommendFragment);
+                    }
 
+                    recommendAdapter.updateRes(data);
+
+
+                }else {
+                    recommend.setVisibility(View.GONE);
                 }
-                
-                recommendAdapter.updateRes(data);
-                
 
 
             }

@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:gravity="center"
-                android:text="全国热门景区"
+                android:text="本地热门景区"
                 />
             <GridView
                 android:id="@+id/fragment_around_allhostscenic"
@@ -43,12 +43,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:gravity="center"
-                android:text="全国热门城市"
+                android:text="附近热门城市"
                 />
             <GridView
                 android:id="@+id/fragment_around_allhostcity"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="160dp"
                 android:horizontalSpacing="@dimen/gridview_Spacing"
                 android:verticalSpacing="@dimen/gridview_Spacing"
                 android:numColumns="4"

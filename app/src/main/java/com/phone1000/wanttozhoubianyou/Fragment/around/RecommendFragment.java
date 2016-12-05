@@ -35,6 +35,10 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
     private TextView intro_view;
     private TextView property_view;
     private TextView propertyName_view;
+    private String URL_HEADER="http://m.yaochufa.com/mmm/appscenic/scenicInfo?strategyId=";
+    private String URL_FOOD="&version=5.5.1&appcitycode=370200&system=android&DeviceToken=00000000-7e69-c3b3-8e65-6234475ccbc6";
+    private String id;
+
 
     @Nullable
     @Override
@@ -57,8 +61,8 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         property = bundle.getString("property");
         propertyName = bundle.getString("propertyName");
         title = bundle.getString("title");
-        url = bundle.getString("url");
-
+        id = bundle.getString("id");
+        url =URL_HEADER+id+URL_FOOD;
         initView();
 
     }

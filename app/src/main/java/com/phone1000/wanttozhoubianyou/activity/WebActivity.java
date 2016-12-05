@@ -19,6 +19,7 @@ public class WebActivity extends AppCompatActivity {
     private String title;
     private TextView name;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,7 @@ public class WebActivity extends AppCompatActivity {
     private void initView() {
         web = (WebView) findViewById(R.id.web_activity);
         name = (TextView) findViewById(R.id.web_activity_title);
+        web.getSettings().setJavaScriptEnabled(true);
         web.loadUrl(url);
         name.setText(title);
     }

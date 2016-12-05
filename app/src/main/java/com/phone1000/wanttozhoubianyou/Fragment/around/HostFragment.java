@@ -3,7 +3,6 @@ package com.phone1000.wanttozhoubianyou.Fragment.around;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,11 +104,8 @@ public class HostFragment extends BaseFragment implements AdapterView.OnItemClic
           case R.id.fragment_around_host_allhostscenic:
               aroundHost.ContentBean.HotScenicBean item = gridViewAdapter.getItem(position);
               String scenicId = item.getScenicId();
-              Log.e(TAG, "onItemClick: "+scenicId );
-
               Intent intent = new Intent(getActivity(), ScienicActivity.class);
               intent.putExtra("id",scenicId);
-
               startActivity(intent);
 
 
